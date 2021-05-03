@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<style>
+
+  html body {
+    background-color: rgb(206, 206, 228);
+
+    
+}
+
+
+</style>
+<!--Form Section-->
+<br /><br />
+<h2 style="text-align: center; margin: 0px; color: black">
+<b>Find out the most suitable crop to grow in your farm</b>
+</h2>
+<br />
+
+<div
+style="
+  width: 350px;
+  height: 50rem;
+  margin: 0px auto;
+  color: black;
+  border-radius: 25px;
+  padding: 10px 10px;
+"
+>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>ML API</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+  
+</head>
+
+<body>
+ <div class="login">
+	<h1>Predict Crop to Harvest</h1>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+      <h4>Nitrogen</h4>
+    	<input type="text" name="Nitrogen" placeholder="Enter the value(Example:50)" required="required" /><br><br>
+      <h4>Phosphorous</h4>
+      <input type="text" name="Phosphorous" placeholder="Enter the value(Example:50)" required="required" /><br><br>
+  		<h4>Pottasium</h4>
+      <input type="text" name="Pottasium" placeholder="Enter the value(Example:50)" required="required" /><br><br>
+      <h4>Temperature</h4>
+      <input type="text" name="Temperature" placeholder="Enter the value(Example:50)" required="required" /><br><br>
+  		<h4>Humidity</h4>
+      <input type="text" name="Humidity" placeholder="Enter the value(Example:50)" required="required" /><br><br>
+  		<h4>pH level</h4>
+      <input type="text" name="ph_level" placeholder="Enter the value" required="required" /><br><br>
+  		<h4>Rainfall (in mm)</h4>
+      <input type="text" name="Rainfall" placeholder="Enter the value" required="required" /><br><br>
+
+
+        <button type="predict" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+
+   <br>
+   <br>
+   <!--p>here is the out put</p-->
+   {{ prediction_text }}
+
+ </div>
+
+
+</body>
+</html>
